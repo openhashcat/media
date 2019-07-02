@@ -21,7 +21,11 @@ export default class Index extends React.Component {
   }
   
   squash(e) {
-    console.log(this.state);
+    let nodes = document.querySelectorAll('.url');
+    let name = this.state.name;
+    let urls = Object.values(nodes).map(e => e.value);
+    console.log('name: ', name);
+    console.log('urls: ', urls);
   }
 
   render() {
