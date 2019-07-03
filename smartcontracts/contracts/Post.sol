@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 interface Post {
     function getPostProfile(bytes32 _id) external view returns(string);
-    function newPostProfile(string _profile) external;
+    function newPostProfile(bytes32 _id, string _profile) external;
 }
 
 interface PostEnumerable {
@@ -18,8 +18,9 @@ contract MedLinker is Post,PostEnumerable {
         return posts[_id];
     }
     
-    function newPostProfile(string _profile) external {
+    function newPostProfile(bytes32 _id,string _profile) external {
         bytes32 id = keccak256(abi.encodePacked(_profile));
+        require(id == _id);
         posts[id] = _profile;
         list.push(id);
     }
@@ -32,5 +33,4 @@ contract MedLinker is Post,PostEnumerable {
         return list[_pos];
     }
 }
-
 
