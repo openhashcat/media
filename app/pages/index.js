@@ -32,7 +32,7 @@ export default class Index extends React.Component {
     return(
       <main>
 	<section className={ss.header}>
-	  <div>Media</div>
+	  <div>MedLinker</div>
 	</section>
 	<hr />
 	<section className={ss.body}>
