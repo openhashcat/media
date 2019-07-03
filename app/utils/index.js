@@ -6,10 +6,10 @@ class MedLinker {
         if (typeof window.ethereum !== 'undefined' || (typeof window.web3 !== 'undefined')) {
             // Web3 browser user detected. You can now use the provider.
             provider = window['ethereum'] || window.web3.currentProvider;
-            this.writeable = false;
+            this.writeable = true;
         } else {
             provider = new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/e98a8cf4294243dfa895c02bfe2671aa');
-            this.writeable = true;
+            this.writeable = false;
         }
         this.web3 = new Web3(provider);
         this.abi = new this.web3.eth.Contract(abi, address);
@@ -21,7 +21,7 @@ class MedLinker {
         let callable = this.abi.methods.newPostProfile(hv, str);
         const accounts = await ethereum.enable();
         let r = await callable.send({from:accounts[0]});
-        console.log(r);
+        return hv;
     }
 
     async getList(page, count) {
