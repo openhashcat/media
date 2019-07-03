@@ -31,6 +31,11 @@ aes-js@3.0.0:
   resolved "https://registry.npm.taobao.org/aes-js/download/aes-js-3.0.0.tgz#e21df10ad6c2053295bcbb8dab40b09dbea87e4d"
   integrity sha1-4h3xCtbCBTKVvLuNq0Cwnb6ofk0=
 
+base64-js@^1.0.2:
+  version "1.3.0"
+  resolved "https://registry.npm.taobao.org/base64-js/download/base64-js-1.3.0.tgz#cab1e6118f051095e58b5281aea8c1cd22bfc0e3"
+  integrity sha1-yrHmEY8FEJXli1KBrqjBzSK/wOM=
+
 bindings@^1.2.1, bindings@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npm.taobao.org/bindings/download/bindings-1.5.0.tgz#10353c9e945334bc0511a6d90b38fbc7c9c504df"
@@ -100,6 +105,14 @@ buffer-xor@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npm.taobao.org/buffer-xor/download/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
   integrity sha1-JuYe0UIvtw3ULm42cp7VHYVf6Nk=
+
+buffer@5.2.1:
+  version "5.2.1"
+  resolved "https://registry.npm.taobao.org/buffer/download/buffer-5.2.1.tgz#dd57fa0f109ac59c602479044dca7b8b3d0b71d6"
+  integrity sha1-3Vf6DxCaxZxgJHkETcp7iz0LcdY=
+  dependencies:
+    base64-js "^1.0.2"
+    ieee754 "^1.1.4"
 
 cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.4"
@@ -398,6 +411,11 @@ idna-uts46-hx@^2.3.1:
   integrity sha1-odxcTfN+7lIr9m2WnMmA4A6HEfk=
   dependencies:
     punycode "2.1.0"
+
+ieee754@^1.1.4:
+  version "1.1.13"
+  resolved "https://registry.npm.taobao.org/ieee754/download/ieee754-1.1.13.tgz#ec168558e95aa181fd87d37f55c32bbcb6708b84"
+  integrity sha1-7BaFWOlaoYH9h9N/VcMrvLZwi4Q=
 
 inherits@^2.0.1, inherits@^2.0.3:
   version "2.0.4"
@@ -715,6 +733,13 @@ sha.js@^2.4.0, sha.js@^2.4.8:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+sha3@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/sha3/download/sha3-2.0.4.tgz#42d5e92862d1bb1d3fac5cc704bb695bbddfb268"
+  integrity sha1-QtXpKGLRux0/rFzHBLtpW73fsmg=
+  dependencies:
+    buffer "5.2.1"
 
 simple-concat@^1.0.0:
   version "1.0.0"

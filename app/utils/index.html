@@ -28,80 +28,80 @@
     <script src="https://cdn.bootcss.com/js-sha3/0.8.0/sha3.min.js"></script>
     <script src="./index.js"></script>
     <script>
-        let abi = [
-        {
-                "constant": false,
-                "inputs": [
-                        {
-                                "name": "_id",
-                                "type": "bytes32"
-                        },
-                        {
-                                "name": "_profile",
-                                "type": "string"
-                        }
-                ],
-                "name": "newPostProfile",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-        },
-        {
-                "constant": true,
-                "inputs": [
-                        {
-                                "name": "_id",
-                                "type": "bytes32"
-                        }
-                ],
-                "name": "getPostProfile",
-                "outputs": [
-                        {
-                                "name": "",
-                                "type": "string"
-                        }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-        },
-        {
-                "constant": true,
-                "inputs": [],
-                "name": "totalPost",
-                "outputs": [
-                        {
-                                "name": "",
-                                "type": "uint256"
-                        }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-        },
-        {
-                "constant": true,
-                "inputs": [
-                        {
-                                "name": "_pos",
-                                "type": "uint256"
-                        }
-                ],
-                "name": "getIndex",
-                "outputs": [
-                        {
-                                "name": "",
-                                "type": "bytes32"
-                        }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-        }
-];
-        let w = new MedLinker(abi,'0x62b3895ff4c275adcd11c4ac76ab45f5f517d133');
-        w.getList(1,2).then(console.log)
+     let abi = [
+       {
+         "constant": false,
+         "inputs": [
+           {
+             "name": "_id",
+             "type": "bytes32"
+           },
+           {
+             "name": "_profile",
+             "type": "string"
+           }
+         ],
+         "name": "newPostProfile",
+         "outputs": [],
+         "payable": false,
+         "stateMutability": "nonpayable",
+         "type": "function"
+       },
+       {
+         "constant": true,
+         "inputs": [
+           {
+             "name": "_id",
+             "type": "bytes32"
+           }
+         ],
+         "name": "getPostProfile",
+         "outputs": [
+           {
+             "name": "",
+             "type": "string"
+           }
+         ],
+         "payable": false,
+         "stateMutability": "view",
+         "type": "function"
+       },
+       {
+         "constant": true,
+         "inputs": [],
+         "name": "totalPost",
+         "outputs": [
+           {
+             "name": "",
+             "type": "uint256"
+           }
+         ],
+         "payable": false,
+         "stateMutability": "view",
+         "type": "function"
+       },
+       {
+         "constant": true,
+         "inputs": [
+           {
+             "name": "_pos",
+             "type": "uint256"
+           }
+         ],
+         "name": "getIndex",
+         "outputs": [
+           {
+             "name": "",
+             "type": "bytes32"
+           }
+         ],
+         "payable": false,
+         "stateMutability": "view",
+         "type": "function"
+       }
+     ];
+     let w = new MedLinker(abi,'0x62b3895ff4c275adcd11c4ac76ab45f5f517d133');
+     w.getList(1,2).then(console.log)
     </script>
   </body>
 </html>

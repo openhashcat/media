@@ -1,5 +1,7 @@
 import ss from '@/styles/index.css';
 import React from 'react';
+import MedLinker from '../utils/index';
+import abi from '../utils/abi';
 
 export default class Index extends React.Component {
   state = {
@@ -20,12 +22,21 @@ export default class Index extends React.Component {
     this.setState({ refs: _temp });
   }
   
-  squash(e) {
+  async squash(e) {
     let nodes = document.querySelectorAll('.url');
     let name = this.state.name;
     let urls = Object.values(nodes).map(e => e.value);
-    console.log('name: ', name);
-    console.log('urls: ', urls);
+
+    let obj = {
+      name, urls
+    };
+
+    let w = new MedLinker(abi,'0x62b3895ff4c275adcd11c4ac76ab45f5f517d133');
+    try {
+      await w.upload(obj);
+    } catch (error) {
+      alert('请重试');
+    }
   }
 
   render() {
