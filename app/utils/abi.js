@@ -21,25 +21,6 @@ const abi = [
 		"constant": true,
 		"inputs": [
 			{
-				"name": "_pos",
-				"type": "uint256"
-			}
-		],
-		"name": "getIndex",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bytes32"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
 				"name": "_id",
 				"type": "bytes32"
 			}
@@ -57,12 +38,50 @@ const abi = [
 	},
 	{
 		"constant": true,
+		"inputs": [
+			{
+				"name": "_id",
+				"type": "bytes32"
+			}
+		],
+		"name": "getBlockNumber",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [],
 		"name": "totalPost",
 		"outputs": [
 			{
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_pos",
+				"type": "uint256"
+			}
+		],
+		"name": "getIndex",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
 			}
 		],
 		"payable": false,
