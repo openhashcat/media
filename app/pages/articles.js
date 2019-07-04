@@ -2,7 +2,9 @@ import React from 'react';
 import abi from '../utils/abi';
 import ss from '@/styles/index.css';
 import MedLinker from '../utils/index';
+import fliter from '@/utils/fliter';
 
+const bb = 'https://rinkeby.etherscan.io/tx/'
 const Article = (props) => {
   let { data } = props;
   if (data.name) {
@@ -10,11 +12,9 @@ const Article = (props) => {
       <details className={ss.linker_item}>
 	<summary>{data.name}</summary>
 	<div className={ss.linker_box}>
+	  <a className={ss.linker_url} href={bb + data.id}>{data.id.slice(0, 9)}</a>
 	  {data.urls.map((e, i) => (
-	    <div key={i}>
-	      <b> ∙ </b>
-	      <a key={i} href={e}>link</a>
-	    </div>
+	    <a className={ss.linker_url} key={i} href={e}>{fliter(e)}</a>
 	  ))}
 	</div>
       </details>      
@@ -34,6 +34,7 @@ export default class Articles extends React.Component {
 
   componentDidMount() {
     this.data(0).then(r => {
+      console.log(r);
       this.setState({ page: 0, articles: r });
     })
   }
@@ -49,8 +50,7 @@ export default class Articles extends React.Component {
     } else {
       this.data(this.state.page - 1).then(r => {
 	this.setState({
-	  page: this.state.page - 1,
-	  articles: r
+	  page: this.state.page - 1, articles: r
 	})
       })
     }
@@ -59,8 +59,7 @@ export default class Articles extends React.Component {
   next() {
     this.data(this.state.page + 1).then(r => {
       this.setState({
-	page: this.state.page + 1,
-	articles: r
+	page: this.state.page + 1, articles: r
       })
     })
   }

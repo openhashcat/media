@@ -6,6 +6,7 @@ else
 fi
 
 function build() {
+    rm -r "${SOURCE_DIR}/../docs"
     umi build
     mv "${SOURCE_DIR}/dist" "${SOURCE_DIR}/../docs"
 }

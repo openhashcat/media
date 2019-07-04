@@ -29,10 +29,9 @@ export default class Index extends React.Component {
 
     for (let i in urls) {
       if(
-	!urls[i].match(/^http:\/\//) ||
-	  !urls[i].match(/^https:\/\//)
+	!urls[i].match(/^http:\/\//) && !urls[i].match(/^https:\/\//)
       ) {
-        alert('请输入正确的链接')
+        alert('请输入正确的链接');
         return;
       }
     }
