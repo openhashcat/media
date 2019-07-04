@@ -40,3 +40,8 @@ input {
     font-size: 1rem;
     
 }
+
+.linker {
+    color: black;
+    text-decoration: none;
+}

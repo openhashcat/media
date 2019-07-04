@@ -29,8 +29,8 @@ export default class Index extends React.Component {
 
     for (let i in urls) {
       if(
-	!urls[i].match(/^http:\/\//)
-	|| !urls[i].match(/^https:\/\//)
+	!urls[i].match(/^http:\/\//) ||
+	  !urls[i].match(/^https:\/\//)
       ) {
         alert('请输入正确的链接')
         return;
@@ -54,7 +54,8 @@ export default class Index extends React.Component {
       <main>
 	<section className={ss.body}>
 	  <div className={ss.rows}>
-	    <b>文章名称：</b><input onChange={this.handleChange.bind(this)} value={this.state.name} />
+	    <b>文章名称：</b>
+	    <input onChange={this.handleChange.bind(this)} value={this.state.name} />
 	  </div>
 	  {
 	    this.state.refs.map((e, i) => (
