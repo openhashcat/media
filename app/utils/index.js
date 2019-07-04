@@ -33,7 +33,7 @@ class MedLinker {
     } else {
       let begin = page * count;
       let end = (page + 1) * count;
-      console.log(begin, end)
+      // console.log(begin, end)
       if (result.total - 1 < begin) {
         return result;
       } else if (result.total > begin && result.total <= end) {
@@ -47,7 +47,7 @@ class MedLinker {
           return false;
         } else {
           let r = await this.abi.methods.getPostProfile(id).call();
-          console.log(r);
+          // console.log(r);
           try {
             post = JSON.parse(web3.toUtf8(r));
           } catch (e) {

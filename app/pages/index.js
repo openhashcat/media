@@ -49,10 +49,7 @@ export default class Index extends React.Component {
   render() {
     return(
       <main>
-	<section className={ss.header}>
-	  <div>MedLinker</div>
-	</section>
-	<hr />
+	
 	<section className={ss.body}>
 	<div className={ss.rows}>
 	  <b>文章名称：</b><input onChange={this.handleChange.bind(this)} value={this.state.name} />

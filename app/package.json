@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "umi dev"
+    "dev": "umi dev",
+    "build": "bash scripts/build.sh"
   },
   "dependencies": {
     "react": "^16.8.6",
