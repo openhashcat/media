@@ -1,7 +1,13 @@
+# SOURCE_DIR
+if [[ "$(uname)" == 'Darwin' ]]; then
+    SOURCE_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+else
+    SOURCE_DIR="$(dirname "$(dirname "$(readlink -f "$0")")")"
+fi
+
 function build() {
-    # readonly CURRENT_DIR=$(cd "$(dirname "$0")"; pwd)
     umi build
-    mv 'dist' '../docs'
+    mv "${SOURCE_DIR}/dist" "${SOURCE_DIR}/../docs"
 }
 
 build

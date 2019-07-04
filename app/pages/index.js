@@ -28,7 +28,10 @@ export default class Index extends React.Component {
     let urls = Object.values(nodes).map(e => e.value);
 
     for (let i in urls) {
-      if(!urls[i].match(/^http:\/\//)) {
+      if(
+	!urls[i].match(/^http:\/\//)
+	|| !urls[i].match(/^https:\/\//)
+      ) {
         alert('请输入正确的链接')
         return;
       }
