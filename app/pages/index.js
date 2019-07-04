@@ -6,12 +6,13 @@ import abi from '../utils/abi';
 export default class Index extends React.Component {
   state = {
     name: '',
+    author: '',
     refs: [''],
   }
 
-  handleChange(e) {
+  handleChange(tag, e) {
     this.setState({
-      name: e.target.value
+      [tag]: e.target.value
     });
   }
 
@@ -25,6 +26,7 @@ export default class Index extends React.Component {
   async squash(e) {
     let nodes = document.querySelectorAll('.url');
     let name = this.state.name;
+    let author = this.state.author;
     let urls = Object.values(nodes).map(e => e.value);
 
     for (let i in urls) {
@@ -36,16 +38,11 @@ export default class Index extends React.Component {
       }
     }
 
-    let obj = {
-      name, urls
-    };
-
-    let w = new MedLinker(abi,'0x62b3895ff4c275adcd11c4ac76ab45f5f517d133');
-    try {
-      await w.upload(obj);
-    } catch (error) {
-      alert('请重试');
-    }
+    let obj = { name, author, urls };
+    let w = new MedLinker(abi,'0x391e627b6251724469ef8e51b7e21071573564b3');
+    w.upload(obj).then(r => {
+      nodes.map(e => { e.value = '' });
+    })
   }
 
   render() {
@@ -54,7 +51,11 @@ export default class Index extends React.Component {
 	<section className={ss.body}>
 	  <div className={ss.rows}>
 	    <b>文章名称：</b>
-	    <input onChange={this.handleChange.bind(this)} value={this.state.name} />
+	    <input onChange={this.handleChange.bind(this, 'name')} value={this.state.name} />
+	  </div>
+	  <div className={ss.rows}>
+	    <b>文章作者：</b>
+	    <input onChange={this.handleChange.bind(this, 'author')} value={this.state.author} />
 	  </div>
 	  {
 	    this.state.refs.map((e, i) => (

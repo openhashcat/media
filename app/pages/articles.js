@@ -4,7 +4,7 @@ import ss from '@/styles/index.css';
 import MedLinker from '../utils/index';
 import fliter from '@/utils/fliter';
 
-const bb = 'https://rinkeby.etherscan.io/tx/'
+const bb = 'https://rinkeby.etherscan.io/block/'
 const Article = (props) => {
   let { data } = props;
   if (data.name) {
@@ -12,7 +12,11 @@ const Article = (props) => {
       <details className={ss.linker_item}>
 	<summary>{data.name}</summary>
 	<div className={ss.linker_box}>
-	  <a className={ss.linker_url} href={bb + data.id}>{data.id.slice(0, 9)}</a>
+	  <div>{data.author ? 'author: ' + data.author : ''}</div>
+	  <a className={ss.linker_url}
+	     href={bb + data.block_number._hex.slice(2)}>
+	    {data.block_number._hex.slice(2)}
+	  </a>
 	  {data.urls.map((e, i) => (
 	    <a className={ss.linker_url} key={i} href={e}>{fliter(e)}</a>
 	  ))}
@@ -27,20 +31,17 @@ const Article = (props) => {
 export default class Articles extends React.Component {
   state = {
     page: 0,
-    articles: {
-      data: []
-    }
+    articles: { data: [] }
   }
 
   componentDidMount() {
     this.data(0).then(r => {
-      console.log(r);
       this.setState({ page: 0, articles: r });
     })
   }
 
   data(page) {
-    let w = new MedLinker(abi,'0x62b3895ff4c275adcd11c4ac76ab45f5f517d133');
+    let w = new MedLinker(abi,'0x391e627b6251724469ef8e51b7e21071573564b3');
     return w.getList(page, 10);
   }
   
