@@ -18,19 +18,19 @@ export default class Index extends React.Component {
   expand(e) {
     let _temp = this.state.refs;
     _temp.push('');
-    
+
     this.setState({ refs: _temp });
   }
-  
+
   async squash(e) {
     let nodes = document.querySelectorAll('.url');
     let name = this.state.name;
     let urls = Object.values(nodes).map(e => e.value);
-    
+
     for (let i in urls) {
       if(!urls[i].match(/^http:\/\//)) {
-	alert('请输入正确的链接')
-	return;
+        alert('请输入正确的链接')
+        return;
       }
     }
 
@@ -49,16 +49,15 @@ export default class Index extends React.Component {
   render() {
     return(
       <main>
-	
 	<section className={ss.body}>
-	<div className={ss.rows}>
-	  <b>文章名称：</b><input onChange={this.handleChange.bind(this)} value={this.state.name} />
-	</div>
-	{
-	  this.state.refs.map((e, i) => (
-	    <div key={i} className={ss.row}>文章链接：<input className='url' /></div>
-	  ))
-	}
+	  <div className={ss.rows}>
+	    <b>文章名称：</b><input onChange={this.handleChange.bind(this)} value={this.state.name} />
+	  </div>
+	  {
+	    this.state.refs.map((e, i) => (
+	      <div key={i} className={ss.row}>文章链接：<input className='url' /></div>
+	    ))
+	  }
 	</section>
 	<hr/>
 	<section className={ss.footer}>
