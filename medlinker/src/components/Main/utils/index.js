@@ -27,7 +27,7 @@ class MedLinker {
 
     async get(id) {
         let r = await this.abi.methods.getPostProfile(id).call();
-        let post = JSON.parse(this.web3.toUtf8(r));
+        let post = JSON.parse(this.web3.utils.toUtf8(r));
         post.id = id;
         post.block_number = await this.abi.methods.getBlockNumber(id).call();
         
