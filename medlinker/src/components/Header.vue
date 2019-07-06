@@ -4,7 +4,11 @@
             <header>
                 <div>
                     <b-jumbotron bg-variant="info" text-variant="white">
-                        <template slot="header"> {{ name }}</template>
+                        <template slot="header">
+                            <h2>
+                                {{ name }}
+                            </h2>
+                        </template>
 
                         <template slot="lead">
                             {{ content }}
