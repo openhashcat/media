@@ -10,7 +10,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue);
+Vue.use(VueRouter);
 
 const router = new VueRouter({
     routes: [
@@ -20,7 +21,6 @@ const router = new VueRouter({
 })
 
 new Vue({
-    el: '#app',
     render: h => h(App),
     router
 }).$mount('#app')
