@@ -18,7 +18,7 @@ class MedLinker {
 
     async upload(value) {
         let str = this.web3.utils.utf8ToHex(JSON.stringify(value));
-        let hv = web3.sha3(str);
+        let hv = this.web3.sha3(str);
         let callable = this.abi.methods.newPostProfile(hv, str);
         const accounts = await ethereum.enable();
         let r = await callable.send({from:accounts[0]});
@@ -27,7 +27,7 @@ class MedLinker {
 
     async get(id) {
         let r = await this.abi.methods.getPostProfile(id).call();
-        let post = JSON.parse(web3.toUtf8(r));
+        let post = JSON.parse(this.web3.toUtf8(r));
         post.id = id;
         post.block_number = await this.abi.methods.getBlockNumber(id).call();
         
