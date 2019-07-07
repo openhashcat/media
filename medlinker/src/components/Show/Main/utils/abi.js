@@ -8,32 +8,13 @@ const abi = [
 			},
 			{
 				"name": "_profile",
-				"type": "string"
+				"type": "bytes"
 			}
 		],
 		"name": "newPostProfile",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_id",
-				"type": "bytes32"
-			}
-		],
-		"name": "getPostProfile",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -57,20 +38,6 @@ const abi = [
 	},
 	{
 		"constant": true,
-		"inputs": [],
-		"name": "totalPost",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
 		"inputs": [
 			{
 				"name": "_pos",
@@ -82,6 +49,39 @@ const abi = [
 			{
 				"name": "",
 				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_id",
+				"type": "bytes32"
+			}
+		],
+		"name": "getPostProfile",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalPost",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"payable": false,

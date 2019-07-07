@@ -14,7 +14,7 @@
                         </p>
                         <hr />
                         <p class="mb-0">
-                        文章记录区块：<a href="#">{{ block_number }}</a>
+                        文章记录区块高度：<a href="#">{{ block_number }}</a>
                         </p>
                     </b-alert>
                     <p>
@@ -24,7 +24,9 @@
                     可用链接：
                     </p>
                     <b-list-group >
-                        <b-list-group-item v-for="link in urls" :key="link"> {{link}} </b-list-group-item>
+                        <b-list-group-item v-for="link in urls" :key="link">
+                            <a :href="link">{{ display(link) }} ：《{{ name }}》</a>
+                        </b-list-group-item>
                     </b-list-group>
                 </b-card-text>
             </b-card-body>
@@ -33,7 +35,19 @@
 </template>
 
 <script>
+import Url from 'url-parse';
+
+const map = {
+    'github.com': 'Github',
+}
+
 export default {
     props: ['id' ,'name', 'author', 'visible', 'block_number', 'urls'],
+    methods:{
+        display(url) {
+            let u = new Url(url);
+            return map[u.host];
+        }
+    }
 }
 </script>

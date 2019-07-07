@@ -18,11 +18,19 @@ class MedLinker {
 
     async upload(value) {
         let str = this.web3.utils.utf8ToHex(JSON.stringify(value));
-        let hv = this.web3.sha3(str);
+        let hv = this.web3.utils.soliditySha3(str);
+        console.log(str)
+        console.log(hv)
         let callable = this.abi.methods.newPostProfile(hv, str);
         const accounts = await ethereum.enable();
-        let r = await callable.send({from:accounts[0]});
-        return hv;
+        try {
+            let r = await callable.send({from:accounts[0]});
+            console.log(r);
+            console.log(hv);
+            return hv;
+        } catch (e) {
+            return false;
+        }
     }
 
     async get(id) {

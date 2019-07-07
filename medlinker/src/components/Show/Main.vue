@@ -2,7 +2,7 @@
     <div>
         <b-row>
             <b-col cols="12" offset="0" md="8" offset-md="2">
-                <Search placeholder="文章ID" searchlabel="查找" v-on:search="getData($event)" v-on:keyup.enter="getData($event)"></Search>
+                <Search ref="search" placeholder="文章ID" searchlabel="查找" v-on:search="getData($event)" v-on:keyup.enter="getData($event)"></Search>
             </b-col>
         </b-row>
         <hr />
@@ -40,8 +40,10 @@ export default {
             if(this.ids.includes(id)){
                 return ;
             }
-            let med = new MedLinker( abi ,'0x391e627b6251724469ef8e51b7e21071573564b3');
+            let med = new MedLinker( abi ,'0x5fc35f37ca8c57f71f720a01c67a63db63d1efb0');
+            this.$refs.search.searching = true;
             let r = await med.get(id);
+            this.$refs.search.searching = false;
             for (let i = 0; i != this.data.length; i ++) {
                 this.data[i].visible = false;
             }
