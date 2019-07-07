@@ -14,7 +14,7 @@
                         </p>
                         <hr />
                         <p class="mb-0">
-                        文章记录区块高度：<a href="#">{{ block_number }}</a>
+                        文章记录区块高度：<a :href="`https://rinkeby.etherscan.io/block/${block_number}`">{{ block_number }}</a>
                         </p>
                     </b-alert>
                     <p>
