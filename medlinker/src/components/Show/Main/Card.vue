@@ -39,6 +39,9 @@ import Url from 'url-parse';
 
 const map = {
     'github.com': 'Github',
+    'www.jianshu.com': '简书',
+    'mp.weixin.qq.com': '微信公众号',
+    'tiannian.me': '博客-念者'
 }
 
 export default {
